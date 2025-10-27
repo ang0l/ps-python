@@ -13,7 +13,7 @@ z = str("2")
 
 z = bool(3) # любая строка кроме пустой = true, любое число кроме 0 = true. остальное false
 
-user_data = "Андрей " + str(56)
+user_data = "Андрей " + x
 print(user_data)
 
 # user_age = 18
