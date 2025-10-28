@@ -1,44 +1,12 @@
-x = int(1)
-y = int(1.5) # дробная часть будет отброшена
-z = int("2")
+sum = 5 + 7
+minus = 10 - 3
+mult = 10 * 4
+div = 10 / 2
 
-x = float(1)
-y = float(1.5) # дробная часть будет отброшена
-z = float("2")
-a = float("2.3")
+mod = 5 % 2
+flor = 7 // 2
 
-x = str(1)
-y = str(1.5) # дробная часть будет отброшена
-z = str("2")
+exp = 2 ** 5
+root = 9 ** 0.5
 
-z = bool(3) # любая строка кроме пустой = true, любое число кроме 0 = true. остальное false
-
-TIME_IN_MS = 1000
-# TIME_IN_MS = 1 # ошика обозначается, но в рантайме не препятствует изменению значения.
-PI = 3.14
-
-
-
-user_data = "Андрей " + x
-print(user_data)
-
-# user_age = 18
-# is_admin = True
-# username = 'Антон'
-# user_salary = 100.5 + 50
-
-# a = 10 + 'fff'
-
-
-# # a = 1
-# # b = 4
-
-# user_age = '18'
-# # допустимая запись, например, координат
-# position_x, position_y = 1, 4
-
-# type_of_user_age = type(user_age)
-# print(type_of_user_age)
-# print(type(is_admin))
-# print(user_salary)
-# print(type(username))
+print(sum, minus, mult, div, mod, flor, exp, root)
