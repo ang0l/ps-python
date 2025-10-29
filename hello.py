@@ -1,14 +1,24 @@
-x = -1
+# Вводит возраст, говорит что проходит если больше 18, но меньше 50
+# True - Принимаем
+# False - Не принимаем
 
-print(not(x > 0) and x < 10 - 3 * 4)
+age = input("Введите возраст: ")
 
-# not(x > 0) and x < 10 - 12
-# not(x > 0) and x < -2
-# not(-1 > 0) and -1 < -2
-# not(False) and False
-# True and False
-# False
-print(not(x > 0) and x < (10 - 3) * 4)
-print(True and True or False)
-print(True and (True or False))
+print(int(age) > 18 and int(age) < 50)
 
+# интересный ход мыслей у преподавателя.
+# наверное для неповторения кода
+
+ageInt = int(age)
+print(ageInt > 18 and ageInt < 50)
+
+# но все же, судя по пройденным урокам правильней писать через подчеркивание
+
+age_int = int(age)
+print(age_int > 18 and age_int < 50)
+
+# Если не смотреть на то, что преподаватель сказал написать код в одну строку, то
+# еще можно сделать так:
+
+is_age_norm = age_int > 18 and age_int < 50
+print(is_age_norm)
