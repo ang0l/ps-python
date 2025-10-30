@@ -1,16 +1,15 @@
 age = input("Введите возраст: ")
 
-# if int(age) < 18:
-#     print("Вы еще молодой!")
-# else:
-#     if int(age) < 50:
-#         print("Вы в самом расцвете лет!")
-#     else:
-#         print("Вы же уже динозавр...")
+# is_legal_age = False
 
-if int(age) < 18:
-    print("Вы еще молодой!")
-elif int(age) < 50:
-    print("Вы в самом расцвете лет!")
-else:
-    print("Вы же уже динозавр...")
+# if int(age) < 18:
+#     is_legal_age = False
+# else:
+#     is_legal_age = True
+
+# if int(age) > 18:
+#     is_legal_age = True
+
+is_legal_age = True if int(age) >= 18 else False
+
+print(is_legal_age)
