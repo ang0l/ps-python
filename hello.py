@@ -1,19 +1,10 @@
-name = "Andrey"
-print(type(name))
-print(name[0])
-# print(name[10])
-# name[0] = "U"
-print(len(name))
-print(name[-1])
+sum = 10 + 5
+print(sum)
 
-t = tuple(name)
-l = list(name)
+sum = (10).__add__(5)
+print(sum)
 
-print(t)
-print(l)
-
-sep = "=" * 20
-print(sep)
-
-tu = (1, 2) * 20
-print(tu)
+s = "andrey".capitalize()
+print(s)
+s = "andrey".upper()
+print(s)
