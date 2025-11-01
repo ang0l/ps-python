@@ -1,10 +1,9 @@
-sum = 10 + 5
-print(sum)
+a = 10
+print(a)
+print(id(a))
 
-sum = (10).__add__(5)
-print(sum)
-
-s = "andrey".capitalize()
-print(s)
-s = "andrey".upper()
-print(s)
+b = a
+a = 7
+print(b)
+print(id(b))
+print(id(a))
