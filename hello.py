@@ -1,29 +1,6 @@
-# a = [1, 2, 3, 4, 5]
-# print(a[0:3])
-# print(a[:3])
-# print(a[2:])
-# print(a[:])
-
-# b = a[:]
-# a[0] = 10
-# print(a)
-# print(b)
-
-a = [[0, 1], 2, 3, 4, 5]
-print(a[0:3])
-print(a[:3])
-print(a[2:])
-print(a[:])
-
-b = a[:]
-a[0][0] = 10
-print(a)
-print(b)
-
-c = [0, 1, 2, 3, 4, 5, 6]
-print(c[0:5:2])
-print(c[0::2])
-print(c[0::3])
-print(c[-4:-1:2])
-print(c[:4:-1])
-print(c[-1:-4:-1])
+# Нужно проверить является ли введенное слово Палиндромом
+# Да - Топот, Шалаш, Мадам
+# Нет - Привет, Машина
+word = input("Введите слово: ").lower()
+palindrom = word[::-1]
+print("Это палиндром" if word == palindrom else "Это не палиндром")
