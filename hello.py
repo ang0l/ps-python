@@ -1,34 +1,11 @@
-# user = ("Andrey", 55)
-# name = user[0]
-# age = user[1]
-name, age = ("Andrey", 55)
-# name, age = ["Andrey", 55]
-# Количество переменных должно совпадать с числом элементов списка, кортежа, строки
-print(name)
-print(age)
+# Нужно просуммировать края и все, что в середине
+# [10, 2, 3, 5] -> (15, 5)
+# [1, 2] -> (3, 0)
+res = sum([1, 2, 3])
+print(res)
 
-a, b = "cd"
-print(a)
-print(b)
-
-# Смена значений местами
-a, b = (1, 2)
-temp1 = a
-temp2 = b
-a = temp2
-b = temp1
-print(a, b)
-# Другой вариант
-a, b = (1, 2)
-temp = (a, b)
-b, a = temp
-print(a, b)
-# Еще вариант
-a, b = (1, 2)
-b, a = (a, b)
-print(a, b)
-
-# Смена переменных
-a, b = (1, 2)
-b, a = a, b
-print(a, b)
+# l = [10, 2, 3, 5]
+l = [1, 2]
+first, *rest, last = l
+result = (first + last, sum(rest))
+print(result)
