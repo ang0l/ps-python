@@ -1,25 +1,36 @@
-password = "hello, PurpleSchool! "
-# Возвращает количество вхождений (int)
-print(password.count("o"))
-# Проверяет заканчивается ли строка указкнным символом (bool)
-print(password.endswith("h"))
-# Проверяет начинается ли строка указкнным символом (bool)
-print(password.startswith("h"))
-# Возвращает индеск первого вхождения в строке (int)
-print(password.find("o"))
-# Возвращает индеск первого вхождения в строке начиная от указанного индекса (int)
-print(password.find("o", 10))
-print(password.find("---[]"))  # Вернет "-1" (нет вхождений) (int)
-print(password.index("o"))  # Работает аналогично методу find()
-# Возвращает индекс первого вхождения символа в строке справа. Вернет 17, т.к. первое вхождение символа "o" справа имеет индекс 17
-print(password.rfind("o"))
-# Проверяет является ли значение числом. (bool). Вернет False
-print(password.isnumeric())
-print("123".isnumeric())  # Вернет True
+# Проверка email
+# a@a.ru = True
+# d@.ru - False
+# d@a.r - False
+# d@com - False
+# @s.com - False
+# d@.com - False
+# print("a" in "ztd")
 
-t = password.split("o")  # Разделит строку по заданному символу. (list)
-print(t)
+# Закомментировано мое решение, чем-то не совпадающее с решением преподавателя
+email = input("Введите email: ").lower()
+if email == "нет":
+    exit("Программа завершена")
+elif email.count("@") != 1:
+    exit("Email не корректный")
 
-role = ("Admin", "User")
-all_role = " ".join(role)  # Соединяет значения в tuple, list в одну строку
-print(all_role)
+# email = email.split("@")
+# if not (email[0]):
+#     exit("Email не корректный")
+name, domain = email.split("@")
+if name:
+    exit("Email не корректный")
+
+# if domain.find(".") == -1:
+#     exit("Email не корректный")
+if "." not in domain:
+    exit("Email не корректный")
+
+domain_name, domain_country = domain.split(".")
+if len(domain_country) < 2:
+    exit("Email не корректный")
+
+if not domain_name:
+    exit("Email не корректный")
+
+print("Email корректный")
