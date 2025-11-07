@@ -1,36 +1,6 @@
-# Проверка email
-# a@a.ru = True
-# d@.ru - False
-# d@a.r - False
-# d@com - False
-# @s.com - False
-# d@.com - False
-# print("a" in "ztd")
-
-# Закомментировано мое решение, чем-то не совпадающее с решением преподавателя
-email = input("Введите email: ").lower()
-if email == "нет":
-    exit("Программа завершена")
-elif email.count("@") != 1:
-    exit("Email не корректный")
-
-# email = email.split("@")
-# if not (email[0]):
-#     exit("Email не корректный")
-name, domain = email.split("@")
-if name:
-    exit("Email не корректный")
-
-# if domain.find(".") == -1:
-#     exit("Email не корректный")
-if "." not in domain:
-    exit("Email не корректный")
-
-domain_name, domain_country = domain.split(".")
-if len(domain_country) < 2:
-    exit("Email не корректный")
-
-if not domain_name:
-    exit("Email не корректный")
-
-print("Email корректный")
+name, email, age = "Andrey", "a@a.ru", 56
+print("Привет " + name + " с почтой " + email + " и " + str(age) + " лет!")
+print("Привет {} с почтой {} и {} лет!".format(name, email, age))
+print("Привет {n} с почтой {e} и {a} лет!".format(e=email, a=age, n=name))
+print(f"Привет {name} с почтой {email} и {age - 1} лет!")
+print(f"Привет {name} с почтой {email} и {(age - 1):.2f} лет!")
