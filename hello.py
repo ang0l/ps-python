@@ -1,10 +1,16 @@
-# Выводит поседовательность чисел от 0 до 9
-print(list(range(10)))
-# Выводит последовательность чисел от 5 до 9
-print(list(range(5, 10)))
-# Вывели тип функции range()
-print(type(range(5, 10)))
-# Выводит последовательность чисел от 5 до 9 с шагом 2 с исключением последней позиции
-print(list(range(5, 11, 2)))
-# Выводит обратную последовательность чисел от 10 до 1
-print(list(range(10, 0, -1)))
+names = ["Andrey", "Василий", "Миха", "Наталия"]
+
+for name in names:
+    print(f"Привет {name}")
+print("Готово")
+
+for num in range(5):
+    print(num + 1)
+print("Готово")
+
+summas = [10, 20, 30, 100]
+result = 0
+
+for summa in summas:
+    result += summa
+print(result)
