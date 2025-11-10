@@ -1,16 +1,7 @@
-names = ["Andrey", "Василий", "Миха", "Наталия"]
+grades = [95, 48, 76, 59, 88]
+# [95, "не сдал", 76, "не сдал", 88]
 
-for name in names:
-    print(f"Привет {name}")
-print("Готово")
-
-for num in range(5):
-    print(num + 1)
-print("Готово")
-
-summas = [10, 20, 30, 100]
-result = 0
-
-for summa in summas:
-    result += summa
-print(result)
+for i, grade in enumerate(grades):
+    if grade < 60:
+        grades[i] = "не сдал"
+print(grades)
