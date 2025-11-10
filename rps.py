@@ -8,70 +8,42 @@
 # 3. Показываем итог
 import random
 
-# < преподаватель
-# rps = ["Камень", "Ножницы", "Бумага"]
-CHOICES = ("Камень", "Ножницы", "Бумага")  # Константа
-# преподаватель >
+CHOICES = ("Камень", "Ножницы", "Бумага")
 rounds = int(input("Сколько раундов? "))
-res_comp = 0
-res_user = 0
+comp_score = 0
+user_score = 0
 
+# < преподаватель
+# user_select = ""
+# преподаватель >
 
 for r in range(rounds):
     print(f"Раунд {r + 1}")
-    user = input("Введите ваше значение (Камень/Ножницы/Бумага): ")
-
-    if user not in CHOICES:
-        exit("Некорректный выбор!")
 
     # < преподаватель
-    # comp = random.choice(rps)
-    comp = random.choice(CHOICES)  # Константа
+    user_select = ""
     # преподаватель >
 
-    # < преподаватель
-    # if user == "Камень":
-    #     match comp:
-    #         case "Ножницы":
-    #             print(f"У компьютера {comp}. Вы выиграли этот раунд!")
-    #             res_user += 1
-    #         case "Бумага":
-    #             print(f"У компьютера {comp}. Вы проиграли этот раунд!")
-    #             res_comp += 1
-    #         case _:
-    #             print(f"У компьютера {comp}. В этом раунде - ничья!")
-    # elif user == "Ножницы":
-    #     match comp:
-    #         case "Бумага":
-    #             print(f"У компьютера {comp}. Вы выиграли этот раунд!")
-    #             res_user += 1
-    #         case "Камень":
-    #             print(f"У компьютера {comp}. Вы проиграли этот раунд!")
-    #             res_comp += 1
-    #         case _:
-    #             print(f"У компьютера {comp}. В этом раунде - ничья!")
-    # elif user == "Бумага":
-    #     match comp:
-    #         case "Камень":
-    #             print(f"У компьютера {comp}. Вы выиграли этот раунд!")
-    #             res_user += 1
-    #         case "Ножницы":
-    #             print(f"У компьютера {comp}. Вы проиграли этот раунд!")
-    #             res_comp += 1
-    #         case _:
-    #             print(f"У компьютера {comp}. В этом раунде - ничья!")
+    while user_select not in CHOICES:
+        user_select = input(
+            "Введите ваше значение (Камень/Ножницы/Бумага): ").capitalize()
+        if user_select not in CHOICES:
+            print("Некорректный выбор!")
 
-    # Ну меньше кода, да. но строка здоровая.
-    if user == comp:
-        print("Ничья")
-    elif (user == "Камень" and comp == "Ножницы") or \
-            (user == "Ножницы" and comp == "Бумага") or \
-            (user == "Бумага" and comp == "Камень"):
-        print(f"У компьютера {comp}. Вы выиграли этот раунд!")
-        res_user += 1
+    comp_select = random.choice(CHOICES)
+    if user_select == comp_select:
+        print(f"У компьютера {comp_select}. Ничья")
+    elif (user_select == "Камень" and comp_select == "Ножницы") or \
+            (user_select == "Ножницы" and comp_select == "Бумага") or \
+            (user_select == "Бумага" and comp_select == "Камень"):
+        print(f"У компьютера {comp_select}. Вы выиграли этот раунд!")
+        user_score += 1
     else:
-        print(f"У компьютера {comp}. Вы проиграли этот раунд!")
-        res_comp += 1
-    # преподаватеь >
+        print(f"У компьютера {comp_select}. Вы проиграли этот раунд!")
+        comp_score += 1
 
-print(f"{"Вы проиграли" if res_comp > res_user else "Вы выиграли"} со счетом {res_user} : {res_comp}")
+    # < преподаватель
+    # user_select = ""
+    # преподаватель >
+
+print(f"{"Вы проиграли" if comp_score > user_score else "Вы выиграли"} со счетом {user_score} : {comp_score}")
