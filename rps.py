@@ -8,42 +8,56 @@
 # 3. Показываем итог
 import random
 
-CHOICES = ("Камень", "Ножницы", "Бумага")
-rounds = int(input("Сколько раундов? "))
-comp_score = 0
-user_score = 0
 
-# < преподаватель
-# user_select = ""
-# преподаватель >
-
-for r in range(rounds):
-    print(f"Раунд {r + 1}")
-
-    # < преподаватель
-    user_select = ""
-    # преподаватель >
-
+def select_variant():
+    user_select = None
     while user_select not in CHOICES:
         user_select = input(
             "Введите ваше значение (Камень/Ножницы/Бумага): ").capitalize()
         if user_select not in CHOICES:
             print("Некорректный выбор!")
+    return user_select
 
-    comp_select = random.choice(CHOICES)
-    if user_select == comp_select:
-        print(f"У компьютера {comp_select}. Ничья")
-    elif (user_select == "Камень" and comp_select == "Ножницы") or \
-            (user_select == "Ножницы" and comp_select == "Бумага") or \
-            (user_select == "Бумага" and comp_select == "Камень"):
-        print(f"У компьютера {comp_select}. Вы выиграли этот раунд!")
-        user_score += 1
+
+def compute_game_result(user_choice: str, comp_choice: str):
+    if user_choice == comp_choice:
+        print(f"У компьютера {comp_choice}. Ничья")
+        return (0, 0)
+    elif (user_choice == "Камень" and comp_choice == "Ножницы") or \
+            (user_choice == "Ножницы" and comp_choice == "Бумага") or \
+            (user_choice == "Бумага" and comp_choice == "Камень"):
+        print(f"У компьютера {comp_choice}. Вы выиграли этот раунд!")
+        return (1, 0)
     else:
-        print(f"У компьютера {comp_select}. Вы проиграли этот раунд!")
-        comp_score += 1
+        print(f"У компьютера {comp_choice}. Вы проиграли этот раунд!")
+        return (0, 1)
 
-    # < преподаватель
-    # user_select = ""
-    # преподаватель >
 
-print(f"{"Вы проиграли" if comp_score > user_score else "Вы выиграли"} со счетом {user_score} : {comp_score}")
+def print_result(user_result: int, comp_result: int):
+    print("==== Итог игры ====")
+    print(f"Твой счет: {user_result}")
+    print(f"Счет компьютера: {comp_result}")
+
+    if user_result > comp_result:
+        print(f"Ты победил со счетом {user_result} : {comp_result}")
+    elif user_result < comp_result:
+        print(f"Ты проиграл со счетом {user_result} : {comp_result}")
+    else:
+        print(f"У вас ничья - {user_result} : {comp_result}")
+
+
+CHOICES = ("Камень", "Ножницы", "Бумага")
+rounds = int(input("Сколько раундов? "))
+comp_score = 0
+user_score = 0
+
+for rnd in range(rounds):
+    print(f"Раунд {rnd + 1}")
+    user_select = select_variant()
+    comp_select = random.choice(CHOICES)
+    [user_mod, comp_mod] = compute_game_result(user_select, comp_select)
+    user_score += user_mod
+    comp_score += comp_mod
+
+
+print_result(user_score, comp_score)
