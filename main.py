@@ -1,14 +1,14 @@
-x = None
-print(x)
-print(type(x))
+def print_hello(user_name: str):
+    print(f"Привет {user_name}")
 
-# Вернет True
-print(x is None)
-print(x == None)  # Не самый лучший путь
 
-# Вернет False
-print(x == 0)
-print(x == False)
-print(x == "")
-print(x == [])
-print(x == ())
+print_hello("Андрей")
+print_hello("Вася")
+
+
+def multiply(a: int, b: int) -> int:
+    return a * b
+
+
+res = multiply(4, 5)
+print(res)
