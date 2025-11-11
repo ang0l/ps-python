@@ -1,18 +1,21 @@
-for i in range(100):
-    print(i)
-    if i > 10:
-        print("Конец цикла")
-        break
-print("Готово")
+# Если есть слово СПАМ, останавливаем проверку
+# Если сообщенрие больше 20 символов - пропускаем его
+# Вывести в результате был ли спам
 
-for i in range(1, 11):
-    if i % 2 == 1:
+messages = [
+    "Привет!",
+    "Купи дешёвые курсы!!!",
+    "Как дела?",
+    "СПАМ реклама!!!",
+    "Пойдем играть в футбол?",
+]
+
+for message in messages:
+    if len(message) >= 20:
         continue
-    print(i)
-
-for i in range(5):
-    print(i)
-    if i > 3:
+    elif "СПАМ" in message:
+        print("Проверка прервана. Найден СПАМ!")
         break
+    print(message)
 else:
-    print("Готово без break")
+    print("Проверка завершена, СПАМ не найден!")
