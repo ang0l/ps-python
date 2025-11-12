@@ -1,13 +1,14 @@
-def avg(*args: int):
-    return sum(args) / len(args)
+def exp(num: float, e: float = 2, mul: float = 1) -> float:
+    return mul * num ** e
 
 
-print(avg(1, 2, 3))
-print(avg(1, 2, 3, 34, 10, 60))
+def print_data(name: str, *data: str, sep: str = " "):
+    print(name, data, sep)
 
 
-def print_data(name: str, *data: str):
-    print(name, data)
+print(exp(2, 3))
+print(exp(e=3, num=2))
+print(exp(2, mul=3))
+print(exp(2))
 
-
-print_data("Андрей", "a", "b", "c")
+print_data("Вася", "a", sep="12")
