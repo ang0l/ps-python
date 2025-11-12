@@ -10,13 +10,13 @@ import random
 
 
 def select_variant():
-    user_select = None
-    while user_select not in CHOICES:
-        user_select = input(
+    user_choice = None
+    while user_choice not in CHOICES:
+        user_choice = input(
             "Введите ваше значение (Камень/Ножницы/Бумага): ").capitalize()
-        if user_select not in CHOICES:
+        if user_choice not in CHOICES:
             print("Некорректный выбор!")
-    return user_select
+    return user_choice
 
 
 def compute_game_result(user_choice: str, comp_choice: str):
