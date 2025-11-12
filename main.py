@@ -1,31 +1,13 @@
-# Написать функцию calculate, которая принимает 2 числа и операцию
-# "+", "-", "*", "/".
+def avg(*args: int):
+    return sum(args) / len(args)
 
 
-def calculate(a: float, b: float, operation: str):
-    """
-    Математическая операция над двумя числами
-
-    :param a: Первое число
-    :param b: Второе число
-    :return: Число или строка ошибки
-    """
-    match operation:
-        case "+":
-            return a + b
-        case "-":
-            return a - b
-        case "*":
-            return a * b
-        case "/":
-            return a / b if b != 0 else "Ошибка: деление на ноль"
-        case _:
-            return "Неизвестная ошибка"
+print(avg(1, 2, 3))
+print(avg(1, 2, 3, 34, 10, 60))
 
 
-print(calculate(2, 5, "+"))
-print(calculate(2, 5, "-"))
-print(calculate(2, 5, "*"))
-print(calculate(2, 5, "/"))
-print(calculate(2, 0, "/"))
-print(calculate(2, 5, "?"))
+def print_data(name: str, *data: str):
+    print(name, data)
+
+
+print_data("Андрей", "a", "b", "c")
