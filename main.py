@@ -1,14 +1,19 @@
-def exp(num: float, e: float = 2, mul: float = 1) -> float:
-    return mul * num ** e
+user = {
+    "age": 37,
+    True: 1,
+    (3): 2
+}
 
+empty = {}
 
-def print_data(name: str, *data: str, sep: str = " "):
-    print(name, data, sep)
+country = dict(
+    germany="Berlin",
+    elnland="London"
+)
 
-
-print(exp(2, 3))
-print(exp(e=3, num=2))
-print(exp(2, mul=3))
-print(exp(2))
-
-print_data("Вася", "a", sep="12")
+pairs = dict(
+    [
+        ("a", 1),
+        ("b", 2)
+    ]
+)
