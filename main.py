@@ -1,19 +1,19 @@
-user = {
+user = {  # type: ignore
     "age": 37,
-    True: 1,
-    (3): 2
+    "name": "Андрей",
 }
+print(user["name"])
 
-empty = {}
+user["age"] = 55
+print(user)
 
-country = dict(
-    germany="Berlin",
-    elnland="London"
-)
+# print(user[city])
+print(user.get("city", "Москва"))
 
-pairs = dict(
-    [
-        ("a", 1),
-        ("b", 2)
-    ]
-)
+# Метод удаляет элемент с ключом. возвращает значение удаленного элемента.
+value = user.pop("age")
+print(value)
+print(user)
+
+exist = "name" in user
+print(exist)
