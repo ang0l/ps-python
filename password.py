@@ -1,19 +1,6 @@
-# Сделать функцию - Генератор паролей, принимающий
-# length
-# use_symbols
-# понадобится random.choice()
 import random
 import string
 
-# < преподаватель
-# def gen_password(length: int, *symbols: str) -> str:
-#     password = ""
-#     for symbol in range(length):
-#         password += random.choice(symbols)
-#     return password
-
-
-# print(gen_password(15, "a", "e", "d", "q", "w", "t", "y", "u", "i"))
 
 def gen_password(lenght: int = 8, use_symbols: bool = True):
     if lenght < 3:
@@ -31,6 +18,40 @@ def gen_password(lenght: int = 8, use_symbols: bool = True):
     return "".join(password_chars)
 
 
-print(gen_password())
-print(gen_password(10, False))
-# преподаватель >
+# 1. Показать пароли
+# 2. Добавить пароль
+# 3. Удалить пароль
+# 4. Оновить пароль
+# 5. Выход
+
+def menu_show():
+    print(
+        """1. Показать пароли
+2. Добавить пароль
+3. Удалить пароль
+4. Оновить пароль
+5. Выход
+"""
+    )
+
+    user_select = int(input("Ваш выбор: "))
+
+    match user_select:
+        case 1:
+            print("Показать пароли")
+
+        case 2:
+            print("Добавить пароль")
+
+        case 3:
+            print("Удалить пароль")
+
+        case 4:
+            print("Оновить пароль")
+
+        case _:
+            exit()
+
+
+while True:
+    menu_show()
