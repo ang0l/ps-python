@@ -2,18 +2,17 @@ user = {  # type: ignore
     "age": 37,
     "name": "Андрей",
 }
-print(user["name"])
-
+user["city"] = "Краснодар"
 user["age"] = 55
-print(user)
 
-# print(user[city])
-print(user.get("city", "Москва"))
+for key in user:
+    print(key)
 
-# Метод удаляет элемент с ключом. возвращает значение удаленного элемента.
-value = user.pop("age")
-print(value)
-print(user)
+for key in user.keys():
+    print(key)
 
-exist = "name" in user
-print(exist)
+for key, value in user.items():
+    print(f"{key}: {value}")
+
+for value in user.values():
+    print(value)
