@@ -1,18 +1,31 @@
-user = {  # type: ignore
-    "age": 37,
-    "name": "Андрей",
-}
-user["city"] = "Краснодар"
-user["age"] = 55
+"""Операции с множествами"""
 
-for key in user:
-    print(key)
+s = {1, 2, 3}
 
-for key in user.keys():
-    print(key)
+s.add("s")  # Добавление элемента
+s.add(4)
+print(s)  # Программа работает без ошибок
 
-for key, value in user.items():
-    print(f"{key}: {value}")
+s.update([5, 6])  # Добавление нескольких элементов
+print(s)
 
-for value in user.values():
-    print(value)
+s.remove(2)  # Удаление элемента
+print(s)
+
+# s.remove(7) # Удаление несуществующего элемента
+# print(s) # Ошибка - нет такого элемента
+
+s.discard(7)  # Безопасное удаление несуществующего элемента
+s.discard(3)
+print(s)
+
+# Удаление элемента первого по хэш-таблице. возвращает удаленное значение
+removed_item = s.pop()
+print(removed_item)
+print(s)
+
+print(4 in s)
+print(7 in s)
+
+for el in s:
+    print(el)
