@@ -1,7 +1,11 @@
 import random
 import string
 
-passwords = {}
+# < преподаватель
+# Типизирование словаря
+# passwords = {}
+passwords: dict[str, str] = {}
+# преподаватель >
 
 
 def gen_password(lenght: int = 8, use_symbols: bool = True):
@@ -38,7 +42,16 @@ def is_resource(resource: str, prt_falses: bool = False) -> bool:
 
 
 def passwords_show():
-    print(passwords)
+
+    # < преподаватель
+    # Дабавление шапки таблицы паролей
+    print("Ресурс".ljust(10), ": пароль")
+    print("-"*20)
+    # переподаватель >
+
+    for key, val in passwords.items():
+        k = key.ljust(10)
+        print(f"{k} : {val}")
 
 
 def password_add():
