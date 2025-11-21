@@ -1,31 +1,26 @@
-"""Операции с множествами"""
+"""Операции над множествами
+Union difference и другие
+"""
 
-s = {1, 2, 3}
+a = {1, 2, 3}
+b = {3, 4, 5}
 
-s.add("s")  # Добавление элемента
-s.add(4)
-print(s)  # Программа работает без ошибок
+# Объединение множеств
+print(a | b)
+print(a.union(b))  # итентичная запись с методом union()
 
-s.update([5, 6])  # Добавление нескольких элементов
-print(s)
+# Пересечение множеств
+print(a & b)
+print(a.intersection(b))  # итентичная запись с методом intresection()
 
-s.remove(2)  # Удаление элемента
-print(s)
+a = {1, 2, 3, 4}
+b = {3, 4, 5}
 
-# s.remove(7) # Удаление несуществующего элемента
-# print(s) # Ошибка - нет такого элемента
+# Разница множеств
+print(a - b)
+print(b - a)
 
-s.discard(7)  # Безопасное удаление несуществующего элемента
-s.discard(3)
-print(s)
-
-# Удаление элемента первого по хэш-таблице. возвращает удаленное значение
-removed_item = s.pop()
-print(removed_item)
-print(s)
-
-print(4 in s)
-print(7 in s)
-
-for el in s:
-    print(el)
+# Симметричная разница
+print(a ^ b)
+# итентичная запись с методом symmetric_difference()
+print(a.symmetric_difference(b))
