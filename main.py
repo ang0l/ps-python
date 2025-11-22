@@ -1,36 +1,30 @@
-"""Упражнение
-Посетители конференции
-"""
+"""Сравнение множеств"""
 
-# Посчитать для каждого дня - всего визитов, уникальных визитов.
-# Найти ID, кто посетили оба дня
-# Найти ID, кто посетили только первый день
-# Найти ID, кто посетили только второй день
-# Найти ID, кто были только 1 раз
+a = {1, 2}
+b = {1, 2, 3}
+c = {3, 2, 1}
 
-visitors_day1 = [101, 102, 103, 101, 104, 102, 105, 101]
-visitors_day2 = [101, 108, 100, 101, 105, 107]
+# Является ли множество a подмножеством b
+print(a.issubset(b))
+# Является ли множество b подмножеством a
+print(b.issubset(a))
 
-s_visitors_day1 = set(visitors_day1)
-s_visitors_day2 = set(visitors_day2)
+# Является ли множество a надмножеством b
+print(a.issuperset(b))
+# Является ли множество b надмножеством a
+print(b.issuperset(a))
 
-# < преподаватель
-# подсчет количества посетителей для каждого дня
-print(
-    f"Входов в день 1: {len(visitors_day1)}, уникальных {len(s_visitors_day1)}")
-print(
-    f"Входов в день 2: {len(visitors_day2)}, уникальных {len(s_visitors_day2)}")
-# преподаватель >
+# Сравнение множеств
+print(c == b)
+print(c != b)
 
-# < преподаватель
-# не делает запись ID уникальных за все дни.
-# print(f"Всего уникальных визитов: {s_visitors_day1.union(s_visitors_day2)}")
-# преподаватель >
+# Очистка множества
+a.clear()
+print(a)
 
-print(f"Оба дня посещали: {s_visitors_day1.intersection(s_visitors_day2)}")
-print(
-    f"Только первый день посещали: {s_visitors_day1.difference(s_visitors_day2)}")
-print(
-    f"Только второй день посещали: {s_visitors_day2.difference(s_visitors_day1)}")
-print(
-    f"только один раз были: {s_visitors_day1.symmetric_difference(s_visitors_day2)}")
+# Копирование множеств
+d = b.copy()
+print(d == b)
+
+# Проверяю тип переменной d
+print(type(d))
