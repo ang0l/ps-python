@@ -1,28 +1,38 @@
-"""Lambda"""
+"""
+Map
+возводим в квадрат числа в списке
+"""
 
+num = [1, 2, 3, 4, 5]
 
+# Ранее я сделал бы так:
+# res = []
+
+# for n in num:
+#     res.append(n * n)
+
+# print(res)
+
+# Сейчас сделал бы так:
 # def square(x: float):
 #     return x * x
 
-# square_lambda = lambda x: x * x
-# # при сохранении вышенаписанная строка форматируется в ниженаписанную
-# и мы приходим к функции написанной выше (square(x))
-# def square_lambda(x): return x * x
+# squares = list(map(square, num))
 
-# действительно полезными lambda могут быть в функциях высшего порядка
+# вывод в столбик, часть 1
+# squares_iterator = map(lambda x: x * x, num)
+# но еще лучше сделать так:
+squares = list(map(lambda x: x * x, num))
 
-def apply(func, value):
-    return func(value)
+print(squares)
 
+# вывод в столбик, часть 2
+# for item in squares_iterator:
+#     print(item)
 
-# выводим на экран:
-# лямбда-функция, возвращающая x + 100, где x = 5
-print(apply(lambda x: x + 100, 5))
+# использование функции map() с двумя аргументами
+a = [1, 2, 3]
+b = [10, 20, 30]
 
-# выводим на экран:
-# лямбда-функция, возвращающая строку 's' в верхнем регистре, где s = "hi"
-print(apply(lambda s: s.upper(), "hi"))
-
-# Так как лямбда-функции имеют ограничения в одну строку,
-# они являются примитивными фукнциями, делающими что-то быстро вычисляемое.
-# бля, пойму что написал в последнем комментарии?
+sums = list(map(lambda x, y: x + y, a, b))
+print(sums)
