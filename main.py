@@ -1,28 +1,31 @@
 """
-filter
+Упражнение - Поиск заказов
 """
 
-num = [10, 15, 20, 25, 30]
+# Нужно найти те заказы, дял которых сумма > 100 и статус paid
 
-# evens = []
-# for n in num:
-#     if n % 2 == 0:
-#         evens.append(n)
+orders = [
+    {"id": 1, "user": "Андрей", "amount": 150, "status": "paid"},
+    {"id": 2, "user": "Ирина", "amount": 50, "status": "canceled"},
+    {"id": 3, "user": "Станислав", "amount": 200, "status": "paid"},
+    {"id": 4, "user": "Сергей", "amount": 0, "status": "draft"},
+    {"id": 5, "user": "Екатерина", "amount": 120, "status": "paid"}
+]
 
-# print(evens)
-
-
-# def is_even(x: int) -> bool:
-#     if x % 2 == 0:
+# < препадаватель
+# использовал лямбда-функцию
+# def filter_order(order: dict) -> bool:
+#     if order["amount"] > 100 and order["status"] == "paid":
 #         return True
 #     return False
 
 
-# evens = list(filter(is_even, num))
-# print(evens)
+# filtered_orders = list(filter(filter_order, orders))
 
-evens = list(filter(lambda x: x % 2 == 0, num))
-print(evens)
+filtered_orders = list(filter(
+    lambda fo: fo["status"] == "paid" and fo["amount"] > 100,
+    orders
+))
+# преподаватель >
 
-even_comp = [x for x in num if x % 2 == 0]
-print(even_comp)
+print(filtered_orders)
