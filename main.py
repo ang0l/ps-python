@@ -1,36 +1,37 @@
 """
-Reduce
+Упражнение - Статистика заказов
 """
+# Список покупок
+# 1. Общую сумму всех заказов.
+# 2. Количество всех проданных товаров.
+
 from functools import reduce
 
 
-nums = [1, 2, 3, 4, 5]
-print(sum(nums))
-
-res = 0
-for n in nums:
-    res += n
-print(res)
-
-total = reduce(lambda a, b: a + b, nums)
-print(total)
-
-words = ["Привет!", "Как", "дела?"]
-sentence = reduce(lambda a, b: a + " " + b, words)
-print(sentence)
-
-
-# Разбор, что такое a и b в лямбде
-# в функцию передается данные из итератора: аккумулятор и следующий элемент:
-# сначала acc = 0 и к нему прибавляется 1 (из нашего примера)
-# далее к acc = 1 прибавляется следующий 2 и acc = 3
-# далее к acc = 3 прибавляется следующий 4 и acc = 7
-# и т.д
-# acc можно задать начальное значение, например 7 в функции reduce и acc будет изначально равен 7
-# и итоговое значение будет не 15, а 22
-def sum_custom(acc: int, next_item: int):
-    return acc + next_item
+orders = [
+    {"id": 1, "user": "Андрей", "items": [
+        {"name": "Laptop", "price": 1000},
+        {"name": "Mouse", "price": 50}
+    ]},
+    {"id": 2, "user": "Ирина", "items": [
+        {"name": "Phone", "price": 700}
+    ]},
+    {"id": 3, "user": "Станислав", "items": [
+        {"name": "Monitor", "price": 300},
+        {"name": "keyboard", "price": 100}
+    ]}
+]
 
 
-total = reduce(sum_custom, nums, 7)
-print(total)
+def aggregate(acc, order):
+    order_sum = sum(item["price"] for item in order["items"])
+    order_count = len(order["items"])
+    return {
+        "total_price": acc["total_price"] + order_sum,
+        "total_items": acc["total_items"] + order_count
+    }
+
+
+result = reduce(aggregate, orders, {"total_price": 0, "total_items": 0})
+
+print(result)
