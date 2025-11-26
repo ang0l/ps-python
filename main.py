@@ -1,37 +1,24 @@
 """
-Упражнение - Статистика заказов
+Sorted
 """
-# Список покупок
-# 1. Общую сумму всех заказов.
-# 2. Количество всех проданных товаров.
 
-from functools import reduce
+nums = [5, 2, 9, 1, 7, 10]
+print(sorted(nums))  # сортировка цифр
+print(sorted(nums, reverse=True))  # обратная сортировка цифр
 
+words = ["banana", "apple", "pear", "ab"]
+words_rus = ["банан", "яблоко", "груша", "баа"]
+print(sorted(words))  # сортировка английских строк
+print(sorted(words_rus))  # сортировка русских строк
 
-orders = [
-    {"id": 1, "user": "Андрей", "items": [
-        {"name": "Laptop", "price": 1000},
-        {"name": "Mouse", "price": 50}
-    ]},
-    {"id": 2, "user": "Ирина", "items": [
-        {"name": "Phone", "price": 700}
-    ]},
-    {"id": 3, "user": "Станислав", "items": [
-        {"name": "Monitor", "price": 300},
-        {"name": "keyboard", "price": 100}
-    ]}
+users = [
+    {"name": "Андрей", "age": 55},
+    {"name": "Ирина", "age": 56},
+    {"name": "Станислав", "age": 37},
+    {"name": "Денис", "age": 37}
 ]
-
-
-def aggregate(acc, order):
-    order_sum = sum(item["price"] for item in order["items"])
-    order_count = len(order["items"])
-    return {
-        "total_price": acc["total_price"] + order_sum,
-        "total_items": acc["total_items"] + order_count
-    }
-
-
-result = reduce(aggregate, orders, {"total_price": 0, "total_items": 0})
-
-print(result)
+print(sorted(users, key=lambda u: u["age"]))  # сортировка по возрасту
+# сортировка по возрасту и имени
+print(sorted(users, key=lambda u: (u["age"], u["name"])))
+# обратная сортировка по возрасту и прямая по имени
+print(sorted(users, key=lambda u: (-u["age"], u["name"])))
