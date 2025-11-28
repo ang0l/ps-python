@@ -1,24 +1,29 @@
 """
-Sorted
+Упражнение - Выплата зарплаты
 """
 
-nums = [5, 2, 9, 1, 7, 10]
-print(sorted(nums))  # сортировка цифр
-print(sorted(nums, reverse=True))  # обратная сортировка цифр
+# Оставь только name и salary
+# Остать только активных
+# Их отсортируй по уменьшению зарплаты и выведи
+# Посчитай сумму для выплат
 
-words = ["banana", "apple", "pear", "ab"]
-words_rus = ["банан", "яблоко", "груша", "баа"]
-print(sorted(words))  # сортировка английских строк
-print(sorted(words_rus))  # сортировка русских строк
+from functools import reduce
 
-users = [
-    {"name": "Андрей", "age": 55},
-    {"name": "Ирина", "age": 56},
-    {"name": "Станислав", "age": 37},
-    {"name": "Денис", "age": 37}
+
+employees = [
+    {'name': 'Андрей', 'departament': 'IT', 'salary': 120000, 'active': True},
+    {'name': 'Ирина', 'departament': 'HR', 'salary': 90000, 'active': False},
+    {'name': 'Станислав', 'departament': 'IT', 'salary': 150000, 'active': True},
+    {'name': 'Александра', 'departament': 'Finance',
+        'salary': 110000, 'active': True},
+    {'name': 'Екатерина', 'departament': 'IT', 'salary': 95000, 'active': False},
+    {'name': 'Сергей', 'departament': 'Finance', 'salary': 130000, 'active': True},
 ]
-print(sorted(users, key=lambda u: u["age"]))  # сортировка по возрасту
-# сортировка по возрасту и имени
-print(sorted(users, key=lambda u: (u["age"], u["name"])))
-# обратная сортировка по возрасту и прямая по имени
-print(sorted(users, key=lambda u: (-u["age"], u["name"])))
+
+employees_filter = filter(lambda a: a['active'], employees)
+employees_filter = map(
+    lambda a: {'name': a['name'], 'salary': a['salary']}, employees_filter)
+employees_filter = sorted(employees_filter, key=lambda ef: -ef['salary'])
+salary = reduce(lambda a, b: a + b['salary'], employees_filter, 0)
+print(employees_filter)
+print(salary)
