@@ -1,18 +1,27 @@
 """Экспериментальный файл"""
 
+
+def divide(a: float, b: float):
+    if b == 0:
+        raise ZeroDivisionError('Нельзя делить на 0!')
+        # Также можно передавать любой объект, например:
+        # raise ZeroDivisionError({'error': 1})
+    return a / b
+
+
+def calculate():
+    try:
+        divide(10, 0)
+    # except ZeroDivisionError:
+    #     print('Деление на 0')
+    except ZeroDivisionError as e:
+        print(e)
+        raise  # перебрасываем на блок выше
+
+
 try:
-    x = int(input('Введите число: '))
-    print(10 / 0)  # Ошибка деления на ноль
-# except ValueError:  # Обработка ошибки ввода
-#     print('Ошибка ввода!')
-# except ZeroDivisionError:  # Обработка ошибки деления на ноль
-#     print('Ошибка деления на ноль!')
-# else:  # Если нет ошибок
-#     print('Без ошибок')
-except Exception as e:
-    print('Ошибка: ', e)
-finally:  # Финальный блок, который отработает не зависимо от того, есть ошибка или нет. Например для закрытия файла.
-    print('Финал')
-
-
-print('Продолжение...')
+    calculate()
+except ZeroDivisionError:
+    # Поймали исключение в функции calculate()
+    # созданное командорй raise
+    print('Поймали выше')
