@@ -1,27 +1,38 @@
 """Экспериментальный файл"""
 
 
-def divide(a: float, b: float):
-    if b == 0:
-        raise ZeroDivisionError('Нельзя делить на 0!')
-        # Также можно передавать любой объект, например:
-        # raise ZeroDivisionError({'error': 1})
-    return a / b
+class BankError(Exception):
+    """Наследование от Exception"""
+    pass
 
 
-def calculate():
-    try:
-        divide(10, 0)
-    # except ZeroDivisionError:
-    #     print('Деление на 0')
-    except ZeroDivisionError as e:
-        print(e)
-        raise  # перебрасываем на блок выше
+class ZeroFundError(BankError):
+    """Наследование от BankError"""
+    pass
 
 
 try:
-    calculate()
+    1 / 0
 except ZeroDivisionError:
-    # Поймали исключение в функции calculate()
-    # созданное командорй raise
-    print('Поймали выше')
+    print("Ошибка")
+except Exception:
+    print('Общая ошибка')
+
+try:
+    1 / 0
+except Exception:
+    print('Общая ошибка')
+except ZeroDivisionError:
+    print("Ошибка")
+
+try:
+    1 / 0
+except ArithmeticError:
+    print('Арифметическая ошибка')
+except ZeroDivisionError:
+    print("Ошибка")
+
+try:
+    1 / 0
+except (ValueError, ZeroDivisionError):
+    print('Общая ошибка')
