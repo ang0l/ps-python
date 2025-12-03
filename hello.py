@@ -1,62 +1,15 @@
-"""Упражнение - Проверка корзины"""
-# Напиши функцию checout(cart, coupon=None), которая:
-# выбрасывает EmptyCartError, если корзина пуста,
-# выбрасывает OutOfStockError, если товара нет,
-# выбрасывает InvalidCouponError, если купон не 'SALE20',
-# возвращает итоговую сумму заказа
+"""Импорт модулей"""
 
+# Четыре способа импорта:
+# второй нежелателен
+# четвертый нерекмоендуемый
 
-class ShopError(Exception):
-    """Базовый класс ошибки магазина"""
-    pass
+import math
 
+# import math as m
 
-class EmptyCartError(ShopError):
-    pass
+from math import sqrt, pi
 
+# from math import *
 
-class OutOfStockError(ShopError):
-    pass
-
-
-class InvalidCouponError(ShopError):
-    pass
-
-
-carts = [
-    ([], None),  # пустая корзина
-    ([{'item': 'Phone', 'price': 700, 'in_stock': False}], None),  # нет в наличии
-    ([{'item': 'Laptop', 'price': 1000, 'in_stock': True}], 'BADCODE'),  # плохой купон
-    ([{'item': 'Laptop', 'price': 1000, 'in_stock': True}],
-     'SALE20'),  # валидный заказ
-]
-
-
-def checout(cart, coupon=None):
-    if not cart:
-        raise EmptyCartError('Корзина пуста')
-    total = 0
-    for product in cart:
-        if not product.get('in_stock', True):
-            raise OutOfStockError(f'{product['item']} нет в наличии')
-        total += product['price']
-
-    if coupon:
-        if coupon != 'SALE20':
-            raise InvalidCouponError(f'Купон {coupon} не валиден')
-
-    return total
-
-
-for cart, coupon in carts:
-    try:
-        result = checout(cart, coupon)
-        print(f'Итоговая сумма {result}')
-    except OutOfStockError as e:
-        print(f'Ошибка нет товара - {e}')
-    except InvalidCouponError as e:
-        print(f'Ошибка: недействительный купон - {e}')
-    except EmptyCartError as e:
-        print(f'Ошибка: пустая корзина - {e}')
-    except ShopError as e:
-        print(f'Другая ошибка магазина - {e}')
+print(math.sqrt(16))
