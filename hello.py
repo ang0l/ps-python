@@ -6,5 +6,5 @@
 # import calc as c
 # print(c.add(1, 5))
 
-from calc import add
+from utils.calc import add
 print(add(1, 5))
