@@ -1,6 +1,7 @@
 """
 Проект - Менеджер задач
 """
+from commands.help import help_command
 
 
 def main():
@@ -12,7 +13,7 @@ def main():
             cmd, args = parts[0], parts[1:]  # add name="aaaa"
             match cmd:
                 case 'help':
-                    pass
+                    help_command()
                 case 'add':
                     pass
                 case 'remove':
