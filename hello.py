@@ -1,15 +1,10 @@
-"""Импорт модулей"""
+"""Экспирементальный файл"""
 
-# Четыре способа импорта:
-# второй нежелателен
-# четвертый нерекмоендуемый
+# import calc
+# print(calc.add(1, 5))
 
-import math
+# import calc as c
+# print(c.add(1, 5))
 
-# import math as m
-
-from math import sqrt, pi
-
-# from math import *
-
-print(math.sqrt(16))
+from calc import add
+print(add(1, 5))
