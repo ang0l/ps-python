@@ -3,9 +3,6 @@
 """
 from commands.help import help_command
 
-MY_CONST = 1
-print(__name__)
-
 
 def main():
     print('Task менеджер. help - для справки')
