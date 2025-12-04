@@ -2,7 +2,9 @@
 Проект - Менеджер задач
 """
 from commands.help import help_command
-import sys
+
+MY_CONST = 1
+print(__name__)
 
 
 def main():
@@ -34,6 +36,5 @@ def main():
             print(f'[ERROR]: {e}')
 
 
-# sys.path.append('/Users/my_path') - Плохо
-print(sys.path)
-main()
+if __name__ == "__main__":
+    main()
