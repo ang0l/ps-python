@@ -2,6 +2,7 @@
 Проект - Менеджер задач
 """
 from commands.help import help_command
+import sys
 
 
 def main():
@@ -33,4 +34,6 @@ def main():
             print(f'[ERROR]: {e}')
 
 
+# sys.path.append('/Users/my_path') - Плохо
+print(sys.path)
 main()
