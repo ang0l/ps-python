@@ -37,16 +37,16 @@ def main():
 if __name__ == "__main__":
     # main()
     now = datetime.datetime.now()
-    print(now)
-    today = datetime.date.today()
-    print(today)
-    current_time = now.time()
-    print(current_time)
+    # %Y - 2025 ГОД
+    # %y - 25 год
+    # %m - 12 месяц
+    # %d - 05 день
+    # %H - 07 час
+    # %M - 12 минута
+    # %S - 17 секунда
+    print(now.strftime('%Y-%m-%d %H:%M:%S'))
+    print(now.strftime('%Y/%m/%d'))
 
-    d = datetime.date(2025, 12, 4)
-    print(d.weekday())
-    print(d)
-
-    t = datetime.time(19, 0, 45)
-    dt = datetime.datetime(2025, 12, 4, 12, 56, 30)
+    s = '2025-12-05/07:41'
+    dt = datetime.datetime.strptime(s, '%Y-%m-%d/%H:%M')
     print(dt)
