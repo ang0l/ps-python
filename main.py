@@ -2,6 +2,7 @@
 Проект - Менеджер задач
 """
 
+from shlex import split
 from commands.help import help_command
 from commands.tasks import make_task
 from helpers.args import parse_add
@@ -12,7 +13,7 @@ def main():
     while True:
         try:
             raw = input("> ").strip()
-            parts = raw.split()
+            parts = split(raw)
             cmd, args = parts[0], parts[1:]  # add name="aaaa"
             match cmd:
                 case 'help':
