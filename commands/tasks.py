@@ -1,4 +1,4 @@
-from typing import TypedDict
+from typing import TypedDict, Optional
 
 PRIORITIES = {'low', 'med', 'high'}
 
@@ -7,11 +7,11 @@ class Task(TypedDict):
     id: int
     title: str
     priority: str
-    tags: list[str]
+    tags: Optional[list[str]]
     status: str
 
 
-def make_task(id_: int, title: str, priority: str = 'med', tags: list[str] = []):
+def make_task(id_: int, title: str, priority: str = 'med', tags: Optional[list[str]] = None):
     if priority not in PRIORITIES:
         raise ValueError("Неверный приоритет. Можно только low | med | high")
     task: Task = {
