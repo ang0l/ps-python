@@ -1,7 +1,8 @@
 """
 Проект - Менеджер задач
 """
-import datetime
+from datetime import datetime
+from zoneinfo import ZoneInfo
 from commands.help import help_command
 
 
@@ -36,16 +37,14 @@ def main():
 
 if __name__ == "__main__":
     # main()
-    d1 = datetime.date(2025, 9, 17)
-    d2 = datetime.date(2025, 12, 31)
+    now_utc = datetime.now(ZoneInfo("UTC"))
+    now = datetime.now()
+    print(now_utc)
+    print(now)
 
-    print(d1 < d2)
-    print(d1 == d2)
-    print(d1 > d2)
+    now_ny = datetime.now(ZoneInfo('America/New_York'))
+    print(now_ny)
 
-    now = datetime.datetime.now()
-    deadline = datetime.datetime(2025, 12, 12, 18, 0, 0)
-    if now < deadline:
-        print('Еще успеваю')
-    else:
-        print('Опоздал')
+    meeting = datetime(2025, 12, 8, 12,0, tzinfo=ZoneInfo('Europe/Moscow'))
+    meeting_ny = meeting.astimezone(ZoneInfo('America/New_York'))
+    print(meeting_ny)
