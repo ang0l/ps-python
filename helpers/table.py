@@ -4,7 +4,7 @@ from tasks.tasks import Task
 
 
 def format_date(d: date) -> str:
-    return date.strftime(d, '%Y-%m-%D')
+    return date.strftime(d, '%Y-%m-%d')
 
 
 def stringify_table(tasks: list[Task]) -> str:
