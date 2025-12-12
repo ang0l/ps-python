@@ -26,8 +26,8 @@
     },
     {
       "id": 4,
-      "title": "Новая",
-      "priority": "med",
+      "title": "Привет",
+      "priority": "low",
       "status": "new",
       "tags": [],
       "due": "2025-12-01"

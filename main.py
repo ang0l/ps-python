@@ -4,6 +4,7 @@
 
 from shlex import split
 from commands.add import add_command
+from commands.edit import edit_command
 from commands.help import help_command
 from commands.list import list_command
 from commands.remove import remove_command
@@ -31,7 +32,7 @@ def main():
                 case 'remove':
                     remove_command(tasks, args)
                 case 'edit':
-                    pass
+                    edit_command(tasks, args)
                 case 'tags':
                     pass
                 case 'exit':
