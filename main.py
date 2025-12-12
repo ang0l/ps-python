@@ -2,6 +2,7 @@
 Проект - Менеджер задач
 """
 
+import json
 from shlex import split
 from commands.add import add_command
 from commands.help import help_command
@@ -49,4 +50,14 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    # main()
+    # with open('notes.txt', 'r', encoding='utf-8') as f:
+    #     # text = f.read()  # Чтение файла целиком
+    #     # print(text)
+
+    #     for line in f:  # чтение файла построчно
+    #         print('>', line.rstrip())
+
+    with open('tasks.json', 'r', encoding='utf-8') as f:
+        data = json.load(f)
+        print(data)
