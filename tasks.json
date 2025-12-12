@@ -27,7 +27,7 @@
     {
       "id": 4,
       "title": "Привет",
-      "priority": "low",
+      "priority": "high",
       "status": "new",
       "tags": [],
       "due": "2025-12-01"

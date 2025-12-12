@@ -51,5 +51,7 @@ def main():
 
 if __name__ == "__main__":
     main()
-    # FileNotFoundError
-    # JSONDecodeError
+    # i = iter([1, 2, 3])
+    # print(next(i))
+    # print(next(i))
+    # print(next(i))
