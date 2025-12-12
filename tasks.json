@@ -1,12 +1,3 @@
 {
-  "tasks": [
-    {
-      "id": 1,
-      "title": "Добавить еще че-нить",
-      "priority": "med",
-      "status": "new",
-      "tags": null,
-      "due": "2025-12-11"
-    }
-  ]
+  "tasks": []
 }

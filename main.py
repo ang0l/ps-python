@@ -7,14 +7,13 @@ from shlex import split
 from commands.add import add_command
 from commands.help import help_command
 from tasks.tasks import Task
-from storage.file import save_tasks
+from storage.file import save_tasks, load_tasks
 
 
 def main():
 
-    tasks: list[Task] = []
-    next_id = 1
     file_path = 'tasks.json'
+    tasks, next_id = load_tasks(file_path)
 
     print('Task менеджер. help - для справки')
     while True:
@@ -50,14 +49,6 @@ def main():
 
 
 if __name__ == "__main__":
-    # main()
-    # with open('notes.txt', 'r', encoding='utf-8') as f:
-    #     # text = f.read()  # Чтение файла целиком
-    #     # print(text)
-
-    #     for line in f:  # чтение файла построчно
-    #         print('>', line.rstrip())
-
-    with open('tasks.json', 'r', encoding='utf-8') as f:
-        data = json.load(f)
-        print(data)
+    main()
+    # FileNotFoundError
+    # JSONDecodeError
