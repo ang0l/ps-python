@@ -7,6 +7,7 @@ from commands.add import add_command
 from commands.edit import edit_command
 from commands.help import help_command
 from commands.list import list_command
+from commands.tags import tags_command
 from commands.remove import remove_command
 from storage.file import save_tasks, load_tasks
 
@@ -34,7 +35,7 @@ def main():
                 case 'edit':
                     edit_command(tasks, args)
                 case 'tags':
-                    pass
+                    tags_command(tasks, args)
                 case 'exit':
                     save_tasks(file_path, tasks)
                     break
