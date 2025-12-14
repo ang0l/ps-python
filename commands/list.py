@@ -8,7 +8,6 @@ from tasks.tasks import Task
 def list_command(tasks: list[Task], args: list[str]):
     subset = tasks[:]
     by = parse_list(args)
-    print(by)
     if by == 'prio':
         order = {'high': 0, 'med': 1, 'low': 2}
         subset = sorted(subset, key=lambda t: order.get(t['priority'], 1))
